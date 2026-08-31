@@ -1,0 +1,13 @@
+<svg width="680" height="680" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg">
+<rect x="140" y="140" width="400" height="400" rx="96" fill="#6B4A87"/>
+<polygon points="340,258 202,286 202,432 340,398" fill="#FFFFFF"/>
+<polygon points="340,258 478,286 478,432 340,398" fill="#FFFFFF"/>
+<line x1="340" y1="258" x2="340" y2="398" stroke="#6B4A87" stroke-width="5"/>
+<line x1="224" y1="322" x2="316" y2="304" stroke="#C09BD8" stroke-width="7" stroke-linecap="round"/>
+<line x1="224" y1="356" x2="316" y2="340" stroke="#C09BD8" stroke-width="7" stroke-linecap="round"/>
+<line x1="224" y1="390" x2="316" y2="376" stroke="#C09BD8" stroke-width="7" stroke-linecap="round"/>
+<line x1="364" y1="304" x2="456" y2="322" stroke="#C09BD8" stroke-width="7" stroke-linecap="round"/>
+<line x1="364" y1="340" x2="456" y2="356" stroke="#C09BD8" stroke-width="7" stroke-linecap="round"/>
+<line x1="364" y1="376" x2="456" y2="390" stroke="#C09BD8" stroke-width="7" stroke-linecap="round"/>
+<path d="M 468 176 Q 474 192 490 198 Q 474 204 468 220 Q 462 204 446 198 Q 462 192 468 176 Z" fill="#C09BD8"/>
+</svg>

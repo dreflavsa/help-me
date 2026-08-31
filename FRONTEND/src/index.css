@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary: oklch(0.63 0.15 310);
+  --color-primary-container: oklch(0.63 0.15 310);
+  --color-on-primary: oklch(0.99 0 0);
+  --color-on-primary-container: oklch(0.99 0 0);
+
+  --color-secondary: oklch(0.83 0.09 335);
+  --color-on-secondary: oklch(0.24 0.025 300);
+  --color-secondary-container: oklch(0.83 0.09 335);
+  --color-on-secondary-container: oklch(0.24 0.025 300);
+
+  --color-surface: oklch(0.93 0.025 340);
+  --color-on-surface: oklch(0.24 0.025 300);
+  --color-on-surface-variant: oklch(0.48 0.035 300);
+  --color-surface-container-lowest: oklch(0.98 0.008 340);
+  --color-surface-container-low: oklch(0.94 0.025 340);
+  --color-surface-container: oklch(0.9 0.025 340);
+  --color-surface-container-high: oklch(0.86 0.035 340);
+  --color-surface-variant: oklch(0.86 0.035 340);
+
+  --color-outline: oklch(0.48 0.035 300);
+  --color-outline-variant: oklch(0.86 0.035 340);
+
+  --color-error: oklch(0.59 0.19 25);
+  --color-on-error: oklch(0.99 0 0);
+  --color-error-container: oklch(0.59 0.19 25 / 0.15);
+  --color-on-error-container: oklch(0.59 0.19 25);
+
+  --color-primary-fixed: oklch(0.63 0.15 310 / 0.15);
+  --color-on-primary-fixed: oklch(0.63 0.15 310);
+
+  --color-background: oklch(0.93 0.025 340);
+  /* Dans le bloc @theme (light), ajouter après --color-background : */
+  --color-card: oklch(0.98 0.008 340);
+  --color-accent: oklch(0.91 0.07 95);
+  --color-on-accent: oklch(0.24 0.025 300);
+
+  /* Nouveaux tokens dédiés à la sidebar (violette, pas neutre comme
+       avant) et aux graphiques du Dashboard — directement repris du
+       fichier v0. */
+  --color-sidebar: oklch(0.63 0.15 310);
+  --color-sidebar-foreground: oklch(0.99 0 0);
+  --color-sidebar-accent: oklch(0.91 0.07 95);
+
+  --color-chart-1: oklch(0.63 0.15 310);
+  --color-chart-2: oklch(0.78 0.12 335);
+  --color-chart-3: oklch(0.84 0.14 95);
+  --color-chart-4: oklch(0.68 0.12 190);
+  --color-chart-5: oklch(0.56 0.09 270);
+}
+
+.dark {
+  --color-primary: oklch(0.75 0.13 320);
+  --color-primary-container: oklch(0.75 0.13 320);
+  --color-on-primary: oklch(0.18 0.025 300);
+  --color-on-primary-container: oklch(0.18 0.025 300);
+
+  --color-secondary: oklch(0.34 0.07 330);
+  --color-on-secondary: oklch(0.96 0.015 340);
+  --color-secondary-container: oklch(0.34 0.07 330);
+  --color-on-secondary-container: oklch(0.96 0.015 340);
+
+  --color-surface: oklch(0.18 0.025 300);
+  --color-on-surface: oklch(0.96 0.015 340);
+  --color-on-surface-variant: oklch(0.76 0.025 340);
+  --color-surface-container-lowest: oklch(0.15 0.025 300);
+  --color-surface-container-low: oklch(0.23 0.03 300);
+  --color-surface-container: oklch(0.29 0.03 300);
+  --color-surface-container-high: oklch(0.34 0.03 300);
+  --color-surface-variant: oklch(0.29 0.03 300);
+
+  --color-outline: oklch(0.76 0.025 340);
+  --color-outline-variant: oklch(1 0 0 / 10%);
+
+  --color-error: oklch(0.704 0.191 22.216);
+  --color-on-error: oklch(0.18 0.025 300);
+  --color-error-container: oklch(0.704 0.191 22.216 / 0.2);
+  --color-on-error-container: oklch(0.9 0.1 22);
+
+  --color-primary-fixed: oklch(0.75 0.13 320 / 0.2);
+  --color-on-primary-fixed: oklch(0.75 0.13 320);
+
+  --color-background: oklch(0.18 0.025 300);
+  /* Dans le bloc .dark {}, ajouter après --color-background : */
+  --color-card: oklch(0.23 0.03 300);
+  --color-accent: oklch(0.76 0.12 95);
+  --color-on-accent: oklch(0.18 0.025 300);
+
+  --color-sidebar: oklch(0.75 0.13 320);
+  --color-sidebar-foreground: oklch(0.96 0.015 340);
+  --color-sidebar-accent: oklch(0.23 0.03 300);
+}
+
+body {
+  background-color: var(--color-background);
+  min-height: 100vh;
+}
+
+* {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: "Fredoka", var(--font-sans, sans-serif);
+  }
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .notebook-holes {
+    position: relative;
+  }
+  .notebook-holes::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2.25rem;
+    background-image: radial-gradient(
+      circle,
+      var(--color-outline-variant) 35%,
+      transparent 36%
+    );
+    background-size: 100% 2.25rem;
+    background-position: center top;
+    background-repeat: repeat-y;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .ruled-paper {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 27px,
+      var(--color-outline-variant) 27px,
+      var(--color-outline-variant) 28px
+    );
+    background-attachment: local;
+  }
+
+  .tear-line {
+    background-image: repeating-linear-gradient(
+      to right,
+      var(--color-outline-variant) 0 6px,
+      transparent 6px 12px
+    );
+  }
+}
+html,
+body,
+#root {
+    width: 100%;
+    max-width: 100%;
+}

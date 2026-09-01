@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { SkeletonPage } from "../components/ui/Skeleton";
 import {
   ClipboardList,
   CheckCircle2,
@@ -88,11 +89,7 @@ export default function DashboardPage() {
   };
 
   if (!dashboard) {
-    return (
-      <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center bg-background">
-        <p className="text-on-surface-variant">{t("common.loading")}</p>
-      </div>
-    );
+    return <SkeletonPage />;
   }
 
   const { totalSoumissions, parStatut, moyenneNotes, parMatiere, recentes } =

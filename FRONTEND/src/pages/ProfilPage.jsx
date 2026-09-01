@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../context/ThemeContext";
+import { SkeletonPage } from "../components/ui/Skeleton";
+
 import {
   ArrowLeft,
   Save,
@@ -99,11 +101,7 @@ export default function ProfilPage() {
     "h-11 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-3 text-sm text-on-surface outline-none focus:border-primary transition-colors";
 
   if (chargement) {
-    return (
-      <div className="min-h-[calc(100vh-4rem)] bg-background flex items-center justify-center">
-        <p className="text-on-surface-variant">{t("common.loading")}</p>
-      </div>
-    );
+    return <SkeletonPage />;
   }
 
   return (

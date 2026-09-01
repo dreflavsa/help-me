@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft, CheckCircle2, XCircle, Clock } from "lucide-react";
+import { SkeletonPage } from "../components/ui/Skeleton";
+
 import {
   getPaiementsEnAttenteRequest,
   validerPaiementRequest,
@@ -53,11 +55,7 @@ export default function AdminPaiementsPage() {
   const localeDate = i18n.language === "fr" ? "fr-FR" : "en-US";
 
   if (chargement) {
-    return (
-      <div className="min-h-[calc(100vh-4rem)] bg-background flex items-center justify-center">
-        <p className="text-on-surface-variant">{t("common.loading")}</p>
-      </div>
-    );
+    return <SkeletonPage />;
   }
 
   return (

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { SkeletonList } from "../components/ui/Skeleton";
 /* eslint-disable no-unused-vars */
 import {
   Plus,
@@ -109,9 +110,7 @@ export default function SoumissionsListPage() {
           </Link>
         </div>
 
-        {chargement && (
-          <p className="text-on-surface-variant">{t("common.loading")}</p>
-        )}
+        {chargement && <SkeletonList />}
 
         {!chargement && soumissions.length === 0 && (
           <Card className="items-center text-center py-12 gap-3">

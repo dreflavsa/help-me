@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { SkeletonPage } from "../components/ui/Skeleton";
 import {
   ArrowLeft,
   Sparkles,
@@ -52,13 +53,9 @@ export default function PacksPage() {
   }, []);
 
   if (chargement) {
-    return (
-      <div className="min-h-[calc(100vh-4rem)] bg-background flex items-center justify-center">
-        <p className="text-on-surface-variant">{t("common.loading")}</p>
-      </div>
-    );
+    return <SkeletonPage />;
   }
-
+  
   const PLANS = PLANS_CONFIG.map((p) => {
     const cle = p.slug.toLowerCase();
     return {

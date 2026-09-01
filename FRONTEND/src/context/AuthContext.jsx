@@ -3,6 +3,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable no-unused-vars */
 import { createContext, useContext, useEffect, useState } from "react";
+import { flushSync } from "react-dom";
 import {
   loginRequest,
   registerRequest,
@@ -21,9 +22,12 @@ export function AuthProvider({ children }) {
   const [chargementInitial, setChargementInitial] = useState(true);
 
   const definirSession = (token, decoded) => {
-    setAccessToken(token); // pour axiosClient (hors React)
-    setAccessTokenState(token); // pour re-render les composants React
-    setUser(decoded);
+    setAccessToken(token); // pour axiosClient (hors React), pas de re-render lié
+
+    flushSync(() => {
+      setAccessTokenState(token);
+      setUser(decoded);
+    });
   };
 
   const effacerSession = () => {
@@ -78,14 +82,10 @@ export function AuthProvider({ children }) {
     definirSession(data.data.accessToken, decoded);
 
     return decoded;
-};
+  };
 
   const register = async (donnees) => {
     await registerRequest(donnees);
-    // Après inscription, on connecte directement l'étudiant plutôt
-    // que de le renvoyer à l'écran de login — un aller-retour en
-    // moins pour lui.
-    await login(donnees.email, donnees.mot_de_passe);
   };
 
   const logout = async () => {

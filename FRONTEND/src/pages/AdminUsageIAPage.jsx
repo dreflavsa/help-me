@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { SkeletonList } from "../components/ui/Skeleton";
 
 import {
   ArrowLeft,
@@ -213,7 +214,7 @@ export default function AdminUsageIAPage() {
         </div>
 
         {chargement ? (
-          <p className="text-on-surface-variant">{t("common.loading")}</p>
+          <SkeletonList />
         ) : logs.length === 0 ? (
           <Card className="px-6 py-10 text-center">
             <Inbox className="size-6 mx-auto mb-2 text-on-surface-variant" />

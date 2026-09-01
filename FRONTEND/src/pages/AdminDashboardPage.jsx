@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { SkeletonPage } from "../components/ui/Skeleton";
 import {
   Users,
   CreditCard,
@@ -121,11 +122,7 @@ export default function AdminDashboardPage() {
   }
 
   if (!stats) {
-    return (
-      <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-background">
-        <p className="text-on-surface-variant">{t("common.loading")}</p>
-      </div>
-    );
+    return <SkeletonPage />;
   }
 
   return (

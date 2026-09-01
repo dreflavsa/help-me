@@ -2,6 +2,8 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { SkeletonPage } from "../components/ui/Skeleton";
+
 import {
   ArrowLeft,
   BookOpen,
@@ -141,13 +143,15 @@ export default function SoumissionDetailPage() {
   };
 
   if (!soumission) {
-    return (
-      <div className="min-h-[calc(100vh-4rem)] bg-background flex items-center justify-center px-6">
-        <p className="text-on-surface-variant">
-          {erreurChargement || t("common.loading")}
-        </p>
-      </div>
-    );
+    if (erreurChargement) {
+      return (
+        <div className="min-h-[calc(100vh-4rem)] bg-background flex items-center justify-center px-6">
+          <p className="text-on-surface-variant">{erreurChargement}</p>
+        </div>
+      );
+    }
+
+    return <SkeletonPage />;
   }
 
   const statutInfo =

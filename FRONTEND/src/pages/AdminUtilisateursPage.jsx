@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft, Search, UserCheck, UserX } from "lucide-react";
+import { SkeletonList } from "../components/ui/Skeleton";
 import {
   listUsersRequest,
   desactiverUtilisateurRequest,
@@ -146,7 +147,7 @@ export default function AdminUtilisateursPage() {
         )}
 
         {chargement ? (
-          <p className="text-on-surface-variant">{t("common.loading")}</p>
+          <SkeletonList />
         ) : utilisateurs.length === 0 ? (
           <Card className="px-6 py-10 text-center">
             <p className="text-on-surface-variant">{t("admin.noUsersFound")}</p>

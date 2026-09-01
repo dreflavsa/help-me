@@ -9,7 +9,10 @@ const fr = {
     close: "Fermer",
     search: "Rechercher",
     back: "Retour",
-    offline: "Tu es hors ligne — certaines données affichées peuvent être obsolètes.",
+    offline:
+      "Tu es hors ligne — certaines données affichées peuvent être obsolètes.",
+    updateAvailable: "Nouvelle version disponible",
+    reload: "Recharger",
   },
   navigation: {
     dashboard: "Tableau de bord",

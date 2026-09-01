@@ -7,6 +7,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import AdminRoute from "./routes/AdminRoute";
 
 import Layout from "./components/Layout";
+import UpdateBanner from "./components/UpdateBanner";
 
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -29,6 +30,7 @@ export default function App() {
     <ThemeProvider>
       <BrowserRouter>
         <AuthProvider>
+          <UpdateBanner />
           <Routes>
             <Route path="/login" element={<LoginPage />} />
 

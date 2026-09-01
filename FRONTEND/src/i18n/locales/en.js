@@ -10,6 +10,8 @@ const en = {
     search: "Search",
     back: "Back",
     offline: "You're offline — some data shown may be out of date.",
+    updateAvailable: "New version available",
+    reload: "Reload",
   },
 
   navigation: {
